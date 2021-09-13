@@ -1,0 +1,53 @@
+
+.todolist {
+    width: 95%;
+    padding: 1rem;
+    margin: 8px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 8px;
+    background: #fff;
+    border-radius: 2px;
+    place-items: center;
+   border:  4px dotted blueviolet;
+
+
+}
+
+.delete {
+    padding: 10px 17px;
+    color: red;
+    border: 1px solid #171717;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    border-radius: 4px;
+}
+.delete:hover,
+.delete:focus,
+.delete:active 
+{
+    background: #171717;
+    transform: scale(1.5);
+}  
+
+@media (max-width: 700px) {
+    .todolist {
+        padding: 2px;
+        margin: 12px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        gap: 3px;
+        width: 100%;
+     
+    }
+    .delete{
+        padding: 6px 8px;
+        color: red;
+        border: 1px solid #171717;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+        border-radius: 4px;
+    }
+
+  
+  }

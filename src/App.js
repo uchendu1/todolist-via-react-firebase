@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { TodoList } from "./components/TodoList";
+import {AppendTask} from './components/AppendTask'
 
 function App() {
+  const dueDate = '<input type="datetime-local" id="task"  name="task">'
+  
+  const [list, setList] = useState([
+    {
+      Task: "template......",
+      Due: dueDate,
+      Delete: "delete",
+    },
+    
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoList items={list}  setList={setList}/>
+      <AppendTask list={list} setList={setList}/>
     </div>
   );
 }
