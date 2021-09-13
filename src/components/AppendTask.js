@@ -27,10 +27,10 @@ export const AppendTask = ({ list, setList }) => {
       },
     ]);
 
-    // setInput({
-    //   task: "",
-    //   due: "",
-    // });
+    setInput({
+      task: "",
+      due: "",
+    });
   };
 
   return (
@@ -43,6 +43,8 @@ export const AppendTask = ({ list, setList }) => {
         onChange={handleChange}
         name="task"
       />
+    <label for="task">due date:</label>
+
       <input
         type="datetime-local"
         placeholder="Due Date"
