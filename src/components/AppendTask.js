@@ -43,8 +43,7 @@ export const AppendTask = ({ list, setList }) => {
         onChange={handleChange}
         name="task"
       />
-    <label for="task">due date:</label>
-
+      <label for="task">due date:</label>
       <input
         type="datetime-local"
         placeholder="Due Date"
@@ -53,9 +52,9 @@ export const AppendTask = ({ list, setList }) => {
         onChange={handleChange}
         name="due"
       />
-        
+      
       <button className="AppendTask-btn" onClick={handleClick}>
-        Add To List
+        Add To Task
       </button>
     </div>
   );
