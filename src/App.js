@@ -2,8 +2,18 @@ import { useState } from "react";
 import "./App.css";
 import { TodoList } from "./components/TodoList";
 import { AppendTask } from "./components/AppendTask";
+import Firebase from "./firebase";
+import "firebase/firestore"; 
+// import * as firestore from 'firebase/firestore';
 
-function App() {
+
+
+Firebase.firestore().collections('name').add({
+  name: 'linda',
+  age: 12
+})
+
+const App = () => { 
   const dueDate =
     '<input type="datetime-local" id="task" name="task">';
 
