@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { collection, onSnapshot } from "@firebase/firestore";
+
 import "./App.css";
 import { TodoList } from "./components/TodoList";
 import { AppendTask } from "./components/AppendTask";
-import Firebase from "./firebase";
-import "firebase/firestore"; 
-// import * as firestore from 'firebase/firestore';
+import db from "./firebase";
 
+// db.collection("name").add({
+//   name: "linda",
+//   age: 12,
+// });
 
+const App = () => {
+  useEffect(
+    () =>
+      onSnapshot(collection, (db, "tasks"), (snapshot) =>
+      // console.log(snapshot)
+        setList(snapshot.docs.map((doc) => doc.data()))
+      ),
+    []
+  );
 
-Firebase.firestore().collections('name').add({
-  name: 'linda',
-  age: 12
-})
-
-const App = () => { 
-  const dueDate =
-    '<input type="datetime-local" id="task" name="task">';
+  const dueDate = '<input type="datetime-local" id="task" name="task">';
 
   const [list, setList] = useState([
     {
@@ -32,6 +38,6 @@ const App = () => {
       <AppendTask list={list} setList={setList} />
     </div>
   );
-}
+};
 
 export default App;
